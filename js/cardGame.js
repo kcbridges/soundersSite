@@ -40,38 +40,40 @@
 	//end creation of game objects
 	//=============================
 
+function Game() {
 
-function Deck() {
-	this.cards = [clint, yedlin, omarGonzalez, landonDonovan, thierryHenry, timCahill, mattBesler,
-	mikeMagee, wondo, robbieKeane, oba];
-	this.count = function() {
-      return this.cards.length;
-  }
+	function Deck() {
+		this.cards = [clint, yedlin, omarGonzalez, landonDonovan, thierryHenry, timCahill, mattBesler,
+		mikeMagee, wondo, robbieKeane, oba];
+		this.count = function() {
+	      return this.cards.length;
+	  }
+	}
+
+
+	function Player() {
+		this.hand = [];
+	}
+
+	stdDeck = new Deck();
+
+
+	var player1 = new Player();
+	var player2 = new Player();
+
+	//TODO: find out how to make sure you can't get duplicate cards (ie, take the out of the array)
+	while (player1.hand.length <= 4) {
+	    player1.hand.push(stdDeck.cards[Math.floor(Math.random() * stdDeck.count())]);
+	  }
+	while (player2.hand.length <= 4) {
+	    player2.hand.push(stdDeck.cards[Math.floor(Math.random() * stdDeck.count())]);
+	  }
+
+
+	alert("You have a hand of " + JSON.stringify(player1.hand))
+
+	prompt("Choose which card to use...")
 }
-
-
-function Player() {
-	this.hand = [];
-}
-
-stdDeck = new Deck();
-
-
-var player1 = new Player();
-var player2 = new Player();
-
-//TODO: find out how to make sure you can't get duplicate cards (ie, take the out of the array)
-while (player1.hand.length <= 4) {
-    player1.hand.push(stdDeck.cards[Math.floor(Math.random() * stdDeck.count())]);
-  }
-while (player2.hand.length <= 4) {
-    player2.hand.push(stdDeck.cards[Math.floor(Math.random() * stdDeck.count())]);
-  }
-
-
-console.log("You have a hand of " + JSON.stringify(player1.hand))
-
-console.log("Choose which card to use...")
 
 
 
